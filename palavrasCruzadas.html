@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palavras Cruzadas</title>
+    <style>
+        body {
+            margin: 0;
+            margin-top: 0.5%;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        input {
+            text-align: center;
+        }
+
+        .letra {
+            width: 20px;
+            height: 20px;
+            border: solid rgb(69, 69, 69) 3px;
+            margin-top: 5px;
+        }
+
+        .inputVazio {
+            width: 20px;
+            height: 20px;
+            border: solid rgb(69, 69, 69) 3px;
+            opacity: 0;
+            margin-top: 5px;
+        }
+
+        .main {
+            width: 100%;
+            height: 98vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+        
+        .inputs {
+            padding-bottom: 5px;
+            width: 70%;
+            height: 100%;
+            border: solid 2px #000;
+            border-radius: 15px;
+        }
+
+        button {
+            margin-top: 2%;
+            width: 20vw;
+            height: 7vh;
+            border-radius: 100px;
+            border: none;
+            font-size: 17px;
+            font-weight: 600;
+            color: white;
+            background-color: rgb(2, 140, 140);
+        }
+
+        .espaco {
+            width: 20px;
+            height: 20px;
+            padding-bottom: 4px;
+            border: solid 3px rgb(164, 163, 163);
+            margin-top: 5px;
+            background-color: lightgray;
+            transform: rotate(270deg);
+        }
+
+        .dicas {
+            width: 20vw;
+            height: 70vh;
+            background-color: rgb(205, 204, 204);
+            overflow-y: scroll;
+            padding: 0 2rem;
+            border-radius: 15px;
+        }
+
+        .opcoes {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div id="inputs" class="inputs">
+
+        </div>
+        <div class="opcoes">
+            <div>
+                <h2>Lista de Palavras:</h2>
+                <div class="dicas">
+                    <p>Uma tecnologia de processador que inclui dois núcleos completos de execução em um único processador.</p>
+                    <p>Um método que permite que um dispositivo de entrada/saída envie ou receba dados diretamente para ou da memória principal, contornando a CPU para acelerar as operações de memória.</p>
+                    <p>Um conjunto de fios que transporta endereços de memória de um componente para outro em um computador.</p>
+                    <p>Pequenas unidades de armazenamento na CPU que fornecem operandos à ULA e armazenam os resultados das operações da ULA.</p>
+                    <p>Um tipo de memória de armazenamento não volátil que pode ser eletronicamente apagada e reprogramada.</p>
+                    <p>O i5 é um processador de quatro núcleos que é comumente usado em computadores desktop e laptops.</p>
+                    <p>Uma memória programável somente leitura que retém seus dados quando a alimentação é desligada.</p>
+                    <p>Tem como função armazenar grandes quantidades de informações. Os dados armazenados nas memórias de massa não são perdidos quando desligamos o equipamento.</p>
+                    <p>O i7 é um processador de alto desempenho que é usado em máquinas de alto desempenho, como estações de trabalho e servidores de jogos.</p>
+                    <p>Um processador quad-core tem quatro núcleos de processamento. Isso significa que um processador quad-core pode realizar várias tarefas ao mesmo tempo com mais eficiência do que um processador dual-core.</p>
+                    <p>Um tipo de memória não volátil usada em computadores e outros dispositivos eletrônicos. Os dados armazenados na ROM não podem ser modificados eletronicamente após a fabricação do dispositivo de memória.</p>
+                    <p>Uma parte da CPU que realiza operações aritméticas e lógicas.</p>
+                    <p>O componente mais importante de um computador, executando instruções de um programa de computador.</p>
+                    <p>Um sistema dentro de um computador ou dispositivo, composto de um caminho que, a partir da memória, os dados podem ser enviados para várias partes do hardware.</p>
+                    <p>Um pino de comando em muitos circuitos integrados que conecta os pinos de E/S no dispositivo à circuitaria interna desse dispositivo.</p>
+                    <p>A menor sequência de instruções programadas que podem ser gerenciadas independentemente por um agendador. Em outras palavras, uma thread é um único fluxo de execução em um processo.</p>
+                </div>
+            </div>
+
+            <button onclick="enviar()">Enviar!</button>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script defer>
+    var palavrasCruzadas = [
+        [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'D', 'U', 'A', 'L', '-', 'C', 'O', 'R', 'E', 'P', 'R', 'O', 'M', ' '],
+        [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'M', ' ', ' ', ' ', ' ', ' ', ' ', 'E', ' ', ' ', ' ', ' ', 'E', ' '],
+        [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'A', ' ', ' ', ' ', ' ', ' ', ' ', 'G', ' ', ' ', ' ', ' ', 'M', ' '],
+        [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'D', ' ', ' ', ' ', ' ', ' ', ' ', 'I', '5', ' ', ' ', ' ', 'O', ' '],
+        [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'R', ' ', ' ', ' ', ' ', ' ', ' ', 'S', ' ', ' ', ' ', ' ', 'R', ' '],
+        [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'E', ' ', ' ', ' ', ' ', ' ', ' ', 'T', ' ', ' ', ' ', ' ', 'I', '7'],
+        [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'S', ' ', ' ', ' ', ' ', ' ', ' ', 'R', ' ', ' ', ' ', ' ', 'A', ' '],
+        [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'S', ' ', ' ', ' ', ' ', 'F', 'L', 'A', 'S', 'H', ' ', ' ', '-', ' '],
+        [' ', ' ', ' ', ' ', ' ', 'Q', ' ', 'C', ' ', '-', ' ', ' ', ' ', ' ', ' ', ' ', 'D', ' ', ' ', ' ', ' ', 'D', ' '],
+        [' ', ' ', ' ', ' ', ' ', 'U', 'L', 'A', ' ', 'B', ' ', ' ', ' ', ' ', ' ', ' ', 'O', ' ', ' ', ' ', ' ', 'E', ' '],
+        [' ', ' ', ' ', ' ', ' ', 'A', ' ', 'C', 'P', 'U', ' ', ' ', ' ', ' ', ' ', ' ', 'R', ' ', ' ', ' ', ' ', '-', ' '],
+        [' ', ' ', ' ', ' ', ' ', 'D', ' ', 'H', ' ', 'S', ' ', ' ', ' ', ' ', ' ', ' ', 'E', ' ', ' ', ' ', ' ', 'M', ' '],
+        [' ', ' ', ' ', ' ', ' ', '-', ' ', 'E', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'S', ' ', ' ', ' ', ' ', 'A', ' '],
+        [' ', ' ', ' ', ' ', ' ', 'C', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'S', ' '],
+        [' ', ' ', 'D', ' ', ' ', 'O', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'S', ' '],
+        [' ', ' ', 'A', ' ', ' ', 'R', 'O', 'M', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'A', ' '],
+        [' ', ' ', 'T', 'H', 'R', 'E', 'A', 'D', 'S', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', 'A', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', '-', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', 'B', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', 'U', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+        [' ', 'C', 'S', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+    ];
+
+    var gabarito = [];
+
+    for (var linha = 0; linha < palavrasCruzadas.length; linha++) {
+        for (var coluna = 0; coluna < palavrasCruzadas[linha].length; coluna++) {
+            if ((palavrasCruzadas[linha])[coluna] == ' ') {
+                inputs.innerHTML += `
+                <input class="inputVazio" disabled="">
+                `
+            } else if((palavrasCruzadas[linha])[coluna] == '-'){
+                inputs.innerHTML += `
+                <input class="espaco" value="[" disabled="">
+                `
+
+            } else {
+                if (coluna % parseInt(Math.random() * 8 + 2) == 0) {
+                    inputs.innerHTML += `
+                        <input class="letra" value="${(palavrasCruzadas[linha])[coluna]}" disabled="">
+                        `
+                } 
+                else {
+                    inputs.innerHTML += `
+                        <input name="campoDigitacao" class="letra">
+                        `
+                        gabarito.push((palavrasCruzadas[linha])[coluna]);
+                }
+
+            }
+        }
+        inputs.innerHTML += `<br>`
+    };
+
+    function enviar(){
+        var corretos = 0;
+        var campos = document.getElementsByName('campoDigitacao');
+        console.log(campos)
+        for(i = 0; i < gabarito.length; i++){
+            if((campos[i].value).toUpperCase() == gabarito[i]){
+                corretos += 1
+            }
+        }
+
+        if(corretos == gabarito.length){
+            alert('Parabéns, você é o cara (ou a cara)!')
+        } else {
+            alert(`Não foi dessa vez. Você acertou ${corretos} letras de ${gabarito.length}`)
+        }
+    }
+</script>
